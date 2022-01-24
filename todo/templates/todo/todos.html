@@ -39,6 +39,9 @@
         </div>
       </div>
       <div class="divide-y divide-gray-200" id="todos"></div>
+      {% for todo in todos %} 
+        {% include 'todo/partials/todo.html' %} 
+      {% endfor %}
     </div>
   </body>
 

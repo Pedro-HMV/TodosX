@@ -5,7 +5,8 @@ from .models import Todo
 
 
 def todos(request):
-    return render(request, 'todo/todos.html')
+    todos = Todo.objects.all()
+    return render(request, 'todo/todos.html', {'todos': todos})
 
 
 @require_http_methods(['POST'])
