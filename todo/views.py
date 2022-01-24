@@ -16,4 +16,4 @@ def add_todo(request):
     if title:
         todo = Todo.objects.create(title=title)
 
-    return render(request, 'todo/partials.todo.html', {'todo': todo})
+    return render(request, 'todo/partials/todo.html', {'todo': todo})
