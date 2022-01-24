@@ -49,7 +49,11 @@
   <script src="https://unpkg.com/htmx.org@1.6.1"></script>
   <script>
     document.body.addEventListener("htmx:configRequest", (event) => {
-      event.detail.headers["X-CSRFToken"] = "{{ csrf_token }}";
-    });
+      event.detail.headers["X-CSRFToken"] = "{{ csrf_token }}"
+    })
+
+    document.body.addEventListener('htmx:afterRequest', (event) => {
+        document.querySelector("input.title").value = ''
+    })
   </script>
 </html>

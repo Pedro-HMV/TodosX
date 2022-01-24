@@ -1,9 +1,18 @@
-<article class="flex">
+<form hx-put="/update/{{ todo.id }}/"
+      hx-target="this"
+      hx-swap="outerHTML"
+>
+
+<article class="flex {% if todo.is_done %} bg-green-50 {% endif %}">
   <div class="w-4/5 py-3">
     <p class="px-6 text-xs text-gray-900">{{ todo.title }}</p>
   </div>
   <div class="w-1/5 px-6 py-3 flex justify-end space-x-4">
-    <a href="#" class="text-sky-600 hover:text-sky-900">Edit</a>
-    <a href="#" class="text-sky-600 hover:text-sky-900">Delete</a>
+    {% if not todo.is_done %}
+      <button class="text-sky-600 hover:text-sky-900">Done</button>
+    {% endif %}
+    <button class="text-sky-600 hover:text-sky-900">Delete</button>
   </div>
 </article>
+
+</form>
